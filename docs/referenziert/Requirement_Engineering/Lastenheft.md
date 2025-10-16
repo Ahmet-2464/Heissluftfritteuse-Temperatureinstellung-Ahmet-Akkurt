@@ -1,23 +1,35 @@
-# Lastenheft: Batteriestandskontrolle für Rasierapparat
+# Lastenheft: Heißluftfritteuse – Temperatureinstellung
 
-1. Der aktuelle Batteriestand wird klar, eindeutig und in intuitiv verständlicher Form angezeigt.
-  - Die Bedienung des Rasierers wird durch die Batteriestandsanzeige nicht komplizierter.
-  - Die Anzeige des Batteriestands erfolgt ohne spürbare Verzögerungen.
+1. **Einfache und intuitive Temperatureingabe**  
+   Die Temperatureinstellung soll für den Nutzer klar und leicht bedienbar sein, z. B. durch ein Touch-Bedienfeld oder Drehregler.  
 
-2. Der Ladevorgang und seine verschiedenen Zustände sind eindeutig erkennbar.
-  -  Beim Laden ist klar erkennbar, wenn der Ladevorgang aktiv ist.
-  -  Beim Laden ist klar erkennbar, wenn der Ladevorgang abgeschlossen ist.
+2. **Großer Temperaturbereich und feine Abstufungen**  
+   Die Temperatur kann zwischen 80 °C und 200 °C eingestellt werden, idealerweise in 5 °C-Schritten.
 
-3. Ich werde darauf hingewiesen, dass die Batterie bald leer geht, damit ich den Rasierer vor dem nächsten Einsatz laden kann.
-  - Ich kann einstellen, ob mich der Rasierer schon bei 30 % oder erst bei 10 % warnen soll.
+3. **Klare und gut lesbare Anzeige der eingestellten Temperatur**  
+   Die aktuelle Temperatureinstellung wird gut sichtbar auf einem Display angezeigt, auch bei schlechten Lichtverhältnissen.
 
-4. Ich kann mir den Akkustand des Rasierers auf Knopfdruck anzeigen lassen, auch wenn der Rasierer gerade nicht verwendet wird.
-  - Die Anzeige ist für farbenblinde oder ältere Nutzer erkennbar sein.
+4. **Schnelle Reaktion auf Temperatureingaben**  
+   Die Eingabe der Temperatur erfolgt ohne spürbare Verzögerungen, um eine zügige Bedienung zu gewährleisten.
 
-5. Ich werde darüber informiert, wenn der Akku nicht richtig lädt.
+5. **Sichere Temperaturregelung**  
+   Die Heißluftfritteuse soll die eingestellte Temperatur präzise einhalten und bei Übertemperatur automatisch abschalten, um Sicherheit zu gewährleisten.
 
-6. Die Anzeige funktioniert unter Alltagsbedingungen oder längerem Nichtgebrauch zuverlässig.
+6. **Visuelle und akustische Rückmeldung**  
+   Der Nutzer wird durch ein Signalton und eine LED-Anzeige informiert, sobald die Zieltemperatur erreicht ist.
 
-7. Ich kann nachschauen, wie viele Minuten Rasur mir noch ungefähr bleiben, statt nur einen abstrakten Ladebalken zu sehen.
+7. **Energieeffizienz und Langlebigkeit**  
+   Die Temperatureinstellung soll energiesparend arbeiten und langlebige Bauteile besitzen.
 
-8. Die Anzeige ist nicht zu hell oder störend, wenn ich den Rasierer z. B. frühmorgens oder nachts benutze.
+8. **Barrierefreie Bedienung**  
+   Die Temperatureinstellung und Anzeige sollen auch für ältere und farbenblinde Nutzer gut verständlich und bedienbar sein.
+
+9. **Zuverlässigkeit auch bei Stromschwankungen oder längerem Nichtgebrauch**  
+   Die Temperatureinstellung funktioniert zuverlässig unter Alltagsbedingungen.
+
+10. **Kompakte und platzsparende Bauweise**  
+    Die Steuerung und Anzeige der Temperatur soll ergonomisch und platzsparend in das Design der Heißluftfritteuse integriert sein.
+
+---
+
+

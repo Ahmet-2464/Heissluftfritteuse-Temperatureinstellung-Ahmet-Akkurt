@@ -1,76 +1,37 @@
-# Pflichtenheft: Batteriestandskontrolle für Rasierapparat
+# Pflichtenheft: Heißluftfritteuse – Temperatureinstellung
 
-### 1. **Anzeige des Batteriestands**
+### 1. Temperatureingabe  
+- Implementierung eines Touch-Bedienfelds mit numerischer Eingabe oder Drehregler.  
+- Temperaturwahl in 5 °C-Schritten zwischen 80 °C und 200 °C.  
+- Die Eingabe muss eine Reaktionszeit ≤ 500 ms aufweisen.  
 
-- Implementierung einer gut sichtbaren, intuitiv verständlichen Anzeige (z. B. Prozentwert, Balkenanzeige mit Farbcodes).
-- Anzeige darf nicht überladen oder komplex wirken.
-- Verzögerungsfreie Aktualisierung (max. 200 ms Reaktionszeit).
+### 2. Temperaturanzeige  
+- Darstellung der eingestellten Temperatur auf einem kontrastreichen LCD-Display.  
+- Anzeige muss aus 1 m Entfernung klar lesbar sein, auch bei schlechten Lichtverhältnissen.  
+- Aktualisierung der Anzeige erfolgt unmittelbar (< 200 ms Verzögerung).  
 
-### 2. **Ladezustandsanzeige**
+### 3. Temperaturregelung  
+- Die Heißluftfritteuse heizt die Kammer auf den Sollwert auf und hält diesen automatisch konstant (Regelgenauigkeit ±3 °C).  
+- Bei Überschreitung von 210 °C erfolgt eine sofortige Abschaltung der Heizelemente (innerhalb von 2 Sekunden).  
 
-- Zwei Ladeanzeigen:
-    - „Ladevorgang aktiv“ (z. B. blinkendes Symbol oder Animation),
-    - „Ladevorgang abgeschlossen“ (z. B. dauerhaft leuchtendes Symbol).
-- Zustandserkennung über Ladeelektronik.
+### 4. Nutzer-Rückmeldung  
+- Ein akustisches Signal ertönt, sobald die Zieltemperatur erreicht ist (mindestens 60 dB in 1 m Entfernung).  
+- Eine LED leuchtet zusätzlich zur akustischen Rückmeldung auf.  
+- Signalisierung erfolgt spätestens 1 Sekunde nach Erreichen der Temperatur.  
 
-### 3. **Warnfunktion bei niedrigem Akkustand**
+### 5. Sicherheitsmechanismen  
+- Übertemperaturschutz mit Abschaltung bei Überschreitung von 210 °C.  
+- Fehlererkennung und Anzeige (z. B. Überhitzung, Sensorfehler).  
+- System arbeitet auch bei Netzspannungsschwankungen von ±10 % zuverlässig.  
 
-- Benutzerdefinierbare Warnschwelle (10 % oder 30 %).
-- Visuelles und akustisches Signal bei Unterschreitung.
+### 6. Bedienkomfort und Barrierefreiheit  
+- Die Temperatureinstellung ist durch große, gut beschriftete Bedienelemente auch für ältere Nutzer einfach bedienbar.  
+- Die Anzeige nutzt kontrastreiche Farben und Symbole, die auch für Farbenblinde verständlich sind.  
 
-### 4. **Zugänglichkeit der Anzeige**
+### 7. Robustheit und Zuverlässigkeit  
+- Temperatureinstellung und Anzeige funktionieren fehlerfrei bei Umgebungstemperaturen von 0 °C bis 40 °C und Luftfeuchtigkeit von 20 % bis 90 %.  
+- Die Komponenten sind auf eine Lebensdauer von mindestens 1 Mio. Bedienzyklen ausgelegt.  
 
-- Akkustand abrufbar per Knopfdruck auch bei ausgeschaltetem Gerät.
-- Anzeige muss barrierefrei für Farbenblinde und ältere Nutzer gestaltet sein (z. B. durch Symbole oder kontrastreiche Schrift).
-
-### 5. **Information bei Ladefehlern**
-
-- Fehlermeldung bei Ladeproblem (z. B. „Akku lädt nicht“).
-- Ursachen z. B. Temperatur, Defekt, Feuchtigkeit.
-
-### 6. **Robustheit und Zuverlässigkeit**
-
-- Anzeige muss auch unter folgenden Bedingungen korrekt arbeiten:
-    - Luftfeuchtigkeit: 20 %–90 %
-    - Temperatur: 0 °C–45 °C
-    - Nach längerer Nichtbenutzung
-
-### 7. **Anzeige der Restbetriebsdauer**
-
-- Dynamische Berechnung und Anzeige der verbleibenden Rasurzeit in Minuten.
-- Berechnungsalgorithmus auf Basis von Nutzungshistorie und aktuellem Energieverbrauch.
-
-### 8. **Komfort und Ergonomie**
-
-- Keine zusätzliche Komplexität durch die Anzeige im Bedienprozess.
-- Displayhelligkeit automatisch oder manuell dimmbar (z. B. für Nachtgebrauch).
-
-### 9. **Batterie**
-
-- Akku-Typ: Lithium-Ionen (Li-Ion)
-- Spannung: 3,7 Volt
-- Kapazität: zwischen 680 mAh und 750 mAh
-- Ladung:
-  - Vollständige Ladung: ca. 60 Minuten
-  - Schnellladung: 5 Minuten für eine vollständige Rasur
-  - Lademöglichkeiten: Über mitgeliefertes Netzkabel, Ladestation oder Reinigungsstation
-- Betrieb:
-  - Maximale Laufzeit: ca. 50 Minuten bei kontinuierlicher Nutzung
-  - Bereitschaftsdauer: Bis zu 3 Wochen bei durchschnittlicher Nutzung
-  - Betrieb: Ausschließlich kabellos; Nutzung während des Ladevorgangs nicht möglich
-
-### 10. **Batteriestandserkennung**
-
-| Ladezustand | Spannung (typisch) |
-|-------------|--------------------|
-| 100 %       | ca. 4,20 V     |
-| 50 %        | ca. 3,75 V     |
-| 0 %         | ca. 3,00 V     |
-| Tiefentladen| < 2,75 V (kritisch, sollte vermieden werden) |
-
-### 11. **Schutzmechanismen für Langlebigkeit und Sicherheit**
-
-- Kapazitätsverlust: Die volle Ladung (4,2 V) liefert im Alter weniger Energie (mAh), somit nimmt die nutzbare Zeit zwischen 4,2 V und 3,0 V ab.
-- Unterspannungsschutz (abschalten vor Tiefentladung, meist bei ~3,0 V)
-- Ladeschutz (nicht über 4,2 V)
-- Temperaturkontrolle beim Laden
+### 8. Design und Integration  
+- Das Bedienfeld und Display sind ergonomisch in die Frontseite der Heißluftfritteuse integriert und nehmen maximal 15 % der Frontfläche ein.  
+- Die Helligkeit des Displays ist automatisch dimmbar, um bei Nachtbetrieb nicht zu blenden.  
