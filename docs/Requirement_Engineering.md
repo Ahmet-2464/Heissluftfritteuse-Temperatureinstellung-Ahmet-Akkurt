@@ -10,9 +10,9 @@ zentrale Stakeholder: Endnutzer (= Kunden)
 
 ## Lasten- / Pflichtenheft
 
-[Lastenheft: Batteriestandskontrolle für Rasierapparat](./referenziert/Requirement_Engineering/Lastenheft.md)
+[Lastenheft: Heißluftfritteuse - Temperatureinstellung](./referenziert/Requirement_Engineering/Lastenheft.md)
 
-[Pflichtenheft: Batteriestandskontrolle für Rasierapparat](./referenziert/Requirement_Engineering/Pflichtenheft.md)
+[Pflichtenheft: Heißluftfritteuse - Temperatureinstellung](./referenziert/Requirement_Engineering/Pflichtenheft.md)
 
 Sowohl das Lasten-, als auch das Pflichtenheft, ist nicht voll ausformuliert sondern dient eher zur groben Orientierung.
 Das formulieren der grundlegenden Anforderungen aus Sicht des Kunden und aus Sicht der Entwicklung wurde als Werkzeug
