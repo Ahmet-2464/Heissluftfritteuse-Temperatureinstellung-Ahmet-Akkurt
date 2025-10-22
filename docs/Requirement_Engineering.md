@@ -12,14 +12,8 @@ Das formulieren der grundlegenden Anforderungen aus Sicht des Kunden und aus Sic
 genutzt, um sich in diese beiden Blickwinkel hineinzuversetzen und diese im Requirement Engineering mit berücksichtigen
 zu können.
 
-## Use Cases
-
-[Use Cases](./referenziert/Requirement_Engineering/Use_cases.md)
-
-Hier wurde der Fokus speziell auf das Ziel der Interaktion und die Schnittstellen zwischen Mensch und Gerät gelegt.
 
 ## Teilfunktionalitäten
-
 
 
 1.**Temperatureingabe**
