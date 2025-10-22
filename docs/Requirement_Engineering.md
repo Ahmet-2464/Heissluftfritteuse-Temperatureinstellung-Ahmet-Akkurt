@@ -29,9 +29,5 @@ zu können.
 
 ## Requirements
 
-Es wurde eine Liste aller Requirements, die sich aus der bisherigen Vorarbeit ergeben, erstellt. Zwischen den
-Requirements wurden Abhängigkeiten und Zusammengehörigkeiten identifiziert. Dann wurden die Requirements den
-Teilfunktionalitäten zugeordnet. Anschließend sind sie der Wichtigkeit nach priorisiert worden und zum Schluss wurden
-die Requirements erneut hinterfragt.
 
 [Requirements](Requirements.md)
