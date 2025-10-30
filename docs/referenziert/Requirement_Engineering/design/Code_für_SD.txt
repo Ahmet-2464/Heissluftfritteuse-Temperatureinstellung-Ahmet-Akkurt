@@ -1,0 +1,27 @@
+sequenceDiagram
+    actor Benutzer
+    participant TouchInputHandler
+    participant TemperatureController
+    participant DisplayController
+
+    %% Benutzerinteraktion (asynchron, Ereignis durch Touch)
+    Benutzer-)TouchInputHandler: Tippt Solltemperatur (180 °C)
+
+    %% Synchrone Verarbeitung der Eingabe
+    TouchInputHandler->>TemperatureController: sendTemperatureInput(180)
+    TemperatureController->>TemperatureController: validateTemperatureRange(80–200 °C)
+
+    alt Gültige Eingabe
+        %% Asynchrone Weitergabe an Anzeige (UI-Aktualisierung)
+        TemperatureController-)DisplayController: updateDisplay(180 °C)
+        %% Synchrone Bestätigung der Anzeigeaktualisierung
+        DisplayController-->>TemperatureController: confirmUpdate()
+        %% Asynchrone Rückmeldung an Benutzer
+        DisplayController-)Benutzer: Anzeige aktualisiert (180 °C)
+    else Ungültige Eingabe
+        %% Asynchrone Fehlermeldung an Display
+        TemperatureController-)DisplayController: showErrorMessage("Ungültiger Wert")
+        %% Anzeige reagiert asynchron (UI-Reaktion)
+        DisplayController-)Benutzer: Fehlermeldung angezeigt
+    end
+

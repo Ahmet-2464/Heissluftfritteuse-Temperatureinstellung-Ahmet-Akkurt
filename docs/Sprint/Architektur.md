@@ -58,3 +58,27 @@
 | **HeaterControl**         | Hardware-Interface (Ausgang) | Steuerung des Heizelements gemäß Regelung und Sicherheitsvorgaben.                                           |
 | **DisplayDriver**         | Anzeige-Interface            | Steuerung von Display, LEDs oder Summer zur Visualisierung von Temperatur, Status und Warnmeldungen.         |
 
+
+
+---
+
+## Schnittstellenbeschreibung
+
+| Schnittstelle | Richtung | Syntax (Art der Kommunikation) | Semantik (Daten / Bedeutung) |
+|----------------|-----------|-------------------------------|-------------------------------|
+| **UI → TemperatureController** | synchron | Methodenaufruf `setTargetTemperature(value)` | Übergibt Solltemperatur vom Benutzer an die Steuerung |
+| **TemperatureController → DisplayDriver** | asynchron | Ereignisgesteuert, Callback `updateDisplay(temp)` | Anzeige der neuen Soll-/Ist-Temperatur |
+| **TemperatureController → HeaterControl** | synchron | Direkter Funktionsaufruf `setHeatingPower(level)` | Anpassung der Heizleistung in Abhängigkeit vom Soll-/Ist-Vergleich |
+| **TemperatureController → SensorInterface** | synchron | Funktionsaufruf `readCurrentTemperature()` | Abfrage des aktuellen Temperaturwerts vom Sensor |
+| **SensorInterface → TemperatureController** | asynchron | Interrupt / Callback `onTemperatureUpdate(value)` | Meldet neue Messwerte an die Regelungslogik |
+| **SafetyManager → HeaterControl** | synchron | Funktionsaufruf `shutdownHeater()` | Sofortige Abschaltung bei Übertemperatur |
+| **SafetyManager → DisplayDriver** | asynchron | Ereignis `showWarning(message)` | Anzeige einer Warnmeldung bei Überhitzung |
+| **DisplayDriver → UserInterface** | asynchron | Signalübertragung (z. B. LED oder Ton) | Rückmeldung über Statusänderungen oder Warnungen |
+| **TemperatureController → SafetyManager** | synchron | Methodenaufruf `checkTemperatureLimits(value)` | Übergibt aktuelle Temperatur zur Grenzprüfung |
+
+
+## Zusammenfassung
+Dieses Komponentendiagramm bildet die funktionale Struktur der Systemarchitektur ab.  
+Die **Schnittstellenbeschreibung** stellt sicher, dass die Kommunikation zwischen den Komponenten eindeutig definiert ist — sowohl auf **technischer Ebene (Syntax)** als auch **inhaltlicher Ebene (Semantik)**.  
+Damit wird eine klare Trennung zwischen Benutzerinteraktion, Steuerungslogik und Hardwarezugriff erreicht, was die **Wartbarkeit**, **Testbarkeit** und **Zuverlässigkeit** des Gesamtsystems wesentlich verbessert.
+

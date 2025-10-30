@@ -1,0 +1,16 @@
+%% Kommunikationsdiagramm in Mermaid
+graph TD
+
+    %% Objekte
+    Benutzer[Benutzer]
+    Touch[TouchInputHandler]
+    TempCtrl[TemperatureController]
+    Display[DisplayController]
+
+    %% Nachrichtenfluss mit Nummerierung (Sequenz der Interaktionen)
+    Benutzer -- 1: tippt Solltemperatur (180 °C) --> Touch
+    Touch -- 2: sendTemperatureInput(180) --> TempCtrl
+    TempCtrl -- 3: validateTemperatureRange(80–200 °C) --> TempCtrl
+    TempCtrl -- 4: updateDisplay(180 °C) --> Display
+    Display -- 5: confirmUpdate() --> TempCtrl
+    Display -- 6: Anzeige aktualisiert --> Benutzer

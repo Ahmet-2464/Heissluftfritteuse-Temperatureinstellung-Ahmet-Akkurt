@@ -9,10 +9,6 @@
 
 
 
-## Architektur
-
-[Architektur - Komponentendiagramm](./Sprint/Architektur.md)
-
 ## Teilfunktionalitäten
 
 

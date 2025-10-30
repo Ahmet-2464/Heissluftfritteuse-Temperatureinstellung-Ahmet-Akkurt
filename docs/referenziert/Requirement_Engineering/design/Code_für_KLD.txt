@@ -1,0 +1,64 @@
+%% ==========================================================
+%% UML-Komponentendiagramm im Mermaid-Editor-Stil
+%% ==========================================================
+
+classDiagram
+    %% Präsentationsschicht
+    class UserInterface {
+        + TemperaturEingabe()
+        + TemperaturAnzeige()
+        + RueckmeldungAnNutzer()
+        --
+        %% Requirements:
+        %% Req. 1.1, 1.2, 1.3, 3.1, 5.1
+    }
+
+    %% Logikschicht
+    class TemperatureController {
+        + SollIstVergleich()
+        + RegelungHeizleistung()
+        --
+        %% Requirements:
+        %% Req. 2.1, 2.2, 2.3, 3.1, 4.1
+    }
+
+    class SafetyManager {
+        + Uebertemperaturschutz()
+        + Sicherheitsabschaltung()
+        --
+        %% Requirements:
+        %% Req. 4.2, 4.3, 4.4
+    }
+
+    %% Hardware-Abstraktionsschicht (HAL)
+    class SensorInterface {
+        + leseTemperatur()
+        --
+        %% Requirements:
+        %% Req. 2.1, 2.3, 5.2
+    }
+
+    class HeaterControl {
+        + steuereHeizelement()
+        --
+        %% Requirements:
+        %% Req. 2.2, 3.1, 4.3
+    }
+
+    class DisplayDriver {
+        + aktualisiereAnzeige()
+        + aktiviereLED()
+        + spieleSignal()
+        --
+        %% Requirements:
+        %% Req. 1.3, 2.1, 5.3
+    }
+
+    %% Beziehungen zwischen Schichten
+    UserInterface --> TemperatureController : Eingabe/Ausgabe
+    TemperatureController --> SensorInterface : liest Temperatur
+    TemperatureController --> HeaterControl : regelt Heizelement
+    TemperatureController --> DisplayDriver : steuert Anzeige
+    SafetyManager --> HeaterControl : Überwachung/Abschaltung
+    SafetyManager --> DisplayDriver : Warnmeldungen
+
