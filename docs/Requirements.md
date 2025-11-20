@@ -101,11 +101,6 @@
       <td>Reaktionsgeschwindigkeit der Eingabe</td>
       <td>Die Reaktionszeit auf eine Eingabe soll maximal 500 ms betragen.</td>
     </tr>
-    <tr class="kann">
-      <td>1.4</td>
-      <td>Langlebigkeit des Bedienelements</td>
-      <td>Das Bedienelement kann mindestens 1 Mio. Betätigungen ohne Funktionsverlust standhalten.</td>
-    </tr>
     <tr class="soll">
       <td>2.3</td>
       <td>Lesbarkeit der Anzeige</td>
