@@ -90,7 +90,7 @@ Die Teststrategie kombiniert automatisierte und manuelle Tests, um die Funktions
 - Sicherheitsüberwachung (Übertemperatur etc.)  
 - Black-Box-Systemtests am realen Gerät  
 
-ggdag
+
 
 # Definition Testfälle inkl. betroffener Requirements
 [Testfälle](/docs/referenziert/Requirement_Engineering/Test/Testfälle.md)
