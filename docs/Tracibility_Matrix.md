@@ -8,12 +8,12 @@
 | 2.1 | TEMP-5 | DisplayDriver | `DisplayController` | `aktiviereLED()` | IT2 |
 | 2.2 | TEMP-6 | DisplayDriver | `DisplayController` | `aktualisiereAnzeige()` | IT1 |
 | 2.3 | TEMP-7 | DisplayDriver | `DisplayController` | `spieleSignal()` | IT3 |
-| 2.4 | TEMP-8 | DisplayDriver | `DisplayController` | `refreshAfterInput()` | - |
-| 3.1 | TEMP-9 | TemperatureController, HeaterControl | `HeaterControl`, `TemperatureController` | `heatToTarget()` | - |
-| 3.2 | TEMP-10 | TemperatureController, SensorInterface | `TemperatureController` | `maintainTemperature()` | - |
-| 3.3 | TEMP-11 | SensorInterface | `SensorReader` | `measureTemperature()` | - |
-| 3.4 | TEMP-12 | TemperatureController | `HeaterControl` | `calculateHeatingTime()` | - |
-| 4.1 | TEMP-13 | SafetyManager, HeaterControl | `SafetyManager` | `shutdownOnOverTemp()` | - |
+| 2.4 | TEMP-8 | DisplayDriver | `DisplayController` | `update()` | UT4, UT5, IT4 |
+| 3.1 | TEMP-9 | SafetyManager | `SafetyManager` | `checkSafetyStatus()` | UT6, IT5 |
+| 3.2 | TEMP-10 | SafetyManager | `SafetyManager` | `update()`, `heater->off()` | UT7, IT6 |
+| 3.3 | TEMP-11 | SafetyManager | `SafetyManager` | `logEvent()` | IT8 |
+| 3.4 | TEMP-12 | SafetyManager/UserInterface | `SafetyManager + DisplayDriver` | `showWarning()` | IT7 |
+| 4.1 | TEMP-13 | TemperatureController | `SensorInterface` | `readTemperature()` | UT8, IT4 |
 | 4.2 | TEMP-14 | SafetyManager, DisplayDriver | `SafetyManager`, `DisplayController` | `showOverheatWarning()` | - |
 | 4.3 | TEMP-15 | SafetyManager | `SafetyManager` | `triggerSafetyShutdown()` | - |
 | 4.4 | TEMP-16 | SafetyManager | `SafetyManager` | `checkPowerFluctuations()` | - |

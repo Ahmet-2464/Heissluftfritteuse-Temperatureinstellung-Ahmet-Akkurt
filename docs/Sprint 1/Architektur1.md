@@ -39,12 +39,12 @@
 
 | **Komponente**            | **Requirements**                                 |
 | ------------------------- | ------------------------------------------------ |
-| **UserInterface**         | Req. 1.1, Req. 1.2, Req. 1.3, Req. 3.1, Req. 5.1 |
-| **TemperatureController** | Req. 2.1, Req. 2.2, Req. 2.3, Req. 3.1, Req. 4.1 |
-| **SafetyManager**         | Req. 4.2, Req. 4.3, Req. 4.4                     |
-| **SensorInterface**       | Req. 2.1, Req. 3.2, Req. 5.2                     |
-| **HeaterControl**         | Req. 2.2, Req. 4.1, Req. 4.3                     |
-| **DisplayDriver**         | Req. 1.3, Req. 3.1, Req. 5.3                     |
+| **UserInterface**         | Req. 1.1, Req. 1.2, Req. 1.3                     |
+| **TemperatureController** | Req. 2.1, Req. 2.2, Req. 2.3                     |
+| **SafetyManager**         |                                                  |
+| **SensorInterface**       | Req. 2.1                                         |
+| **HeaterControl**         | Req. 2.2                                         |
+| **DisplayDriver**         | Req. 1.3                                         |
 
 
 ### Verantwortlichkeiten der Komponenten:

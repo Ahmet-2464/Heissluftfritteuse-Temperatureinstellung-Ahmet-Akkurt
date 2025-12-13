@@ -1,0 +1,19 @@
+/src
+  |-- controller/
+  |      TemperatureController.h / .cpp
+  |      SafetyManager.h / .cpp
+  |      MainController.h / .cpp
+  |
+  |-- ui/
+  |      UI.h / .cpp
+  |
+  |-- hal/
+  |      SensorInterface.h / .cpp
+  |      HeaterControl.h / .cpp
+  |      DisplayDriver.h / .cpp
+  |
+  |-- events/
+  |      EventSystem.h / .cpp
+  |
+  |-- models/
+  |      SystemState.h

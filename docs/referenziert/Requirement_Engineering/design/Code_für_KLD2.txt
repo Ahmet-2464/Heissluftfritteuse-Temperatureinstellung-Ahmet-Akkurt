@@ -1,0 +1,74 @@
+classDiagram
+    %% =========================
+    %% UI / Bedienung
+    %% =========================
+    class TouchInputHandler {
+        +onTemperatureInput(int value)
+        +onStartPressed()
+        +onStopPressed()
+        -validateRawInput()
+    }
+
+    class DisplayController {
+        +updateDisplay(int temperature, int currentTemp)
+        +showSafetyWarning(string msg)
+        +showStatus(string status)
+    }
+
+    class UI {
+        +renderMainScreen()
+        +renderWarning()
+        +handleUserInteraction()
+    }
+
+    %% =========================
+    %% Logikschicht (Control Layer)
+    %% =========================
+    class TemperatureController {
+        -int targetTemperature
+        -int currentTemperature
+        -bool heatingActive
+        +setTargetTemperature(int)
+        +validateTemperatureRange(int)
+        +updateControlLoop()
+        +handleSafetyEvent(string)
+        +getCurrentTemperature()
+    }
+
+    class SafetyManager {
+        +checkSafetyStatus(int temperature)
+        +onOverheat()
+        +onSensorFailure()
+    }
+
+    %% =========================
+    %% HAL-Schicht
+    %% =========================
+    class SensorInterface {
+        +readTemperature()
+        +isValid()
+    }
+
+    class HeaterControl {
+        +applyHeatingPower(int intensity)
+        +turnOff()
+        +turnOn()
+    }
+
+    %% =========================
+    %% Beziehungen
+    %% =========================
+
+    %% UI-Verbindungen
+    TouchInputHandler --> TemperatureController : input\n(set temperature)
+    TemperatureController --> DisplayController : output\n(update display)
+    UI --> TouchInputHandler : user input\n(events)
+    DisplayController --> UI : update\n(render)
+
+    %% Logik <-> Safety
+    SafetyManager --> TemperatureController : event\n(overheat/sensor fail)
+    TemperatureController --> SafetyManager : status\n(current temp)
+
+    %% Logik <-> HAL
+    TemperatureController --> SensorInterface : read\n(current temp)
+    TemperatureController --> HeaterControl : command\n(heating power)

@@ -1,0 +1,19 @@
+graph TD
+
+    Benutzer((Benutzer))
+    TIH[TouchInputHandler]
+    TC[TemperatureController]
+    DC[DisplayController]
+    SM[SafetyManager]
+    SI[SensorInterface]
+
+    %% Nummerierte Nachrichten
+    Benutzer -->|1. Temperatur eingeben| TIH
+    TIH -->|2. sendTemperatureInput(value)| TC
+    TC -->|3. validateTemperatureRange()| TC
+    TC -->|4. readTemperature()| SI
+    SI -->|5. currentTemp| TC
+    TC -->|6. checkSafetyStatus()| SM
+    SM -->|7. status OK| TC
+    TC -->|8. updateDisplay()| DC
+    DC -->|9. Anzeige aktualisieren| Benutzer

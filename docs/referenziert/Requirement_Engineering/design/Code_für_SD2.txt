@@ -1,0 +1,25 @@
+sequenceDiagram
+    autonumber
+
+    actor Benutzer
+    participant TouchInputHandler
+    participant TemperatureController
+    participant DisplayController
+    participant SafetyManager
+    participant SensorInterface
+
+    Benutzer ->> TouchInputHandler: tippt Temperatur (z.B. 180 °C)
+    TouchInputHandler ->> TouchInputHandler: validateRawInput()
+    TouchInputHandler ->> TemperatureController: onTemperatureInput(180)
+
+    TemperatureController ->> TemperatureController: validateTemperatureRange(180)
+    TemperatureController ->> SensorInterface: readTemperature()
+    SensorInterface -->> TemperatureController: currentTemp
+
+    TemperatureController ->> SafetyManager: checkSafetyStatus(currentTemp)
+    SafetyManager -->> TemperatureController: OK
+
+    TemperatureController ->> TemperatureController: updateControlLoop()
+    TemperatureController ->> DisplayController: updateDisplay(180, currentTemp)
+
+    DisplayController -->> Benutzer: Anzeige aktualisiert
