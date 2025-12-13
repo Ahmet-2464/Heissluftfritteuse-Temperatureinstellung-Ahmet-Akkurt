@@ -93,9 +93,9 @@ Die Teststrategie kombiniert automatisierte und manuelle Tests, um die Funktions
 
 
 # Definition Testfälle inkl. betroffener Requirements
-
+[Testfälle](/docs/referenziert/Requirement_Engineering/Test/Testfälle.md)
 
 
 # Dokumentation der Ergebnisse
-
+[Testergebnisse](/docs/referenziert/Requirement_Engineering/Test/Testergebnisse.md)
 
