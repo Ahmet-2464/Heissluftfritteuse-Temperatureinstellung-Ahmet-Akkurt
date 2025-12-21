@@ -1,5 +1,7 @@
 # Test 
+
 ## 1. Ziel der Tests
+
 Ziel der Tests ist die Verifikation der korrekten Temperatureingabe, -anzeige und -rückmeldung in der Software der Heißluftfritteuse.  
 Die Tests stellen sicher, dass:
 
@@ -9,6 +11,7 @@ Die Tests stellen sicher, dass:
 - UI-Komponente und Display-Komponente korrekt zusammenarbeiten.
 
 ## 2. Testarten und Abdeckung
+
 ### 2.1 Unit Tests (Modultests)
 
 **Ziel:**  

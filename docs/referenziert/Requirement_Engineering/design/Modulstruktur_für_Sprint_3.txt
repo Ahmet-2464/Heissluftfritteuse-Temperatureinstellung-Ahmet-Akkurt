@@ -1,0 +1,20 @@
+/core (Logikschicht 3)
+  TemperatureController.h / .cpp
+  SafetyManager.h / .cpp
+  TimerService.h / .cpp
+  SystemState.h
+
+/ui (Präsentationsshicht 3)
+  UserInterface.h / .cpp
+
+/hal
+  SensorInterface.h        (Header-only)
+  HeaterControl.h          (Header-only)
+  DisplayDriver.h          (Header-only)
+
+  MockSensor.h             (Header-only)
+  MockHeater.h             (Header-only)
+  MockDisplayDriver.h      (Header-only)
+
+/app (Main-Programm)
+  main.cpp

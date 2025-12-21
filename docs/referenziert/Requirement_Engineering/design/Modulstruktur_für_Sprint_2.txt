@@ -1,10 +1,10 @@
 /src
-  |-- controller/
+  |-- controller/ (Logikschicht 2)
   |      TemperatureController.h / .cpp
   |      SafetyManager.h / .cpp
   |      MainController.h / .cpp
   |
-  |-- ui/
+  |-- ui/ (Präsentationsschicht 2)
   |      UI.h / .cpp
   |
   |-- hal/

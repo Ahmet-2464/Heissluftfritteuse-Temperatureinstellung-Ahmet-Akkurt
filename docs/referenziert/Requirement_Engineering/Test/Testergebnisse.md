@@ -108,6 +108,110 @@ MockSensor gibt den simulierten Wert (150°C) präzise weiter.
 
 ---
 
+## UT9 – SafetyManager erkennt Übertemperatur
+
+**Ziel:**  
+Erkennung einer kritischen Temperatur über dem Grenzwert.
+
+**Ergebnis:**  
+`checkSafetyStatus()` erkennt Temperatur > Grenzwert und setzt Fehlerstatus.
+
+**Status:** Bestanden  
+**Requirement:** 4.2
+
+---
+
+## UT10 – SafetyManager deaktiviert Heizung
+
+**Ziel:**  
+Automatische Abschaltung der Heizung im Fehlerfall.
+
+**Ergebnis:**  
+`heater->off()` wird sofort ausgeführt.
+
+**Status:** Bestanden  
+**Requirement:** 4.3
+
+---
+
+## UT11 – Warnmeldung wird angezeigt
+
+**Ziel:**  
+Anzeige einer visuellen Warnmeldung.
+
+**Ergebnis:**  
+`showWarning()` wird mit korrektem Text aufgerufen.
+
+**Status:** Bestanden  
+**Requirement:** 4.2
+
+---
+
+## UT12 – UI wird im Fehlerfall gesperrt
+
+**Ziel:**  
+Verhindern weiterer Benutzereingaben.
+
+**Ergebnis:**  
+`lockInput()` blockiert Temperatureingaben zuverlässig.
+
+**Status:** Bestanden  
+**Requirement:** 4.4
+
+---
+
+## UT13 – Akustisches Warnsignal wird ausgelöst
+
+**Ziel:**  
+Akustische Rückmeldung bei Sicherheitsereignissen.
+
+**Ergebnis:**  
+`playSignal()` wird korrekt ausgelöst.
+
+**Status:** Bestanden  
+**Requirement:** 5.1
+
+---
+
+## UT14 – LED wird im Fehlerzustand aktiviert
+
+**Ziel:**  
+Visuelle Anzeige eines Fehlerzustands.
+
+**Ergebnis:**  
+`activateLED(ERROR)` wird ausgeführt.
+
+**Status:** Bestanden  
+**Requirement:** 5.2
+
+---
+
+## UT15 – Signal nach Zieltemperatur
+
+**Ziel:**  
+Akustische Rückmeldung nach Erreichen der Zieltemperatur.
+
+**Ergebnis:**  
+`signalAfterTargetTemp()` wird ausgelöst.
+
+**Status:** Bestanden  
+**Requirement:** 5.4
+
+---
+
+## UT16 – Signal-Lautstärke wird korrekt überwacht
+
+**Ziel:**  
+Sicherstellen, dass das akustische Signal die geforderte Lautstärke einhält.
+
+**Ergebnis:**  
+`measureSignalVolume()` liefert einen Wert innerhalb des definierten Grenzbereichs.
+
+**Status:** Bestanden  
+**Requirement:** 5.3
+
+---
+
 # Integrations-Tests
 
 ## IT1 – Übergabe Temperatur UI → Display
@@ -213,20 +317,81 @@ Beim Erreichen von 250°C wurde der Logeintrag korrekt erzeugt.
 
 ---
 
+## IT9 – Temperaturüberschreitung löst Warnkette aus
+
+**Ziel:**  
+Überprüfung der vollständigen Reaktionskette.
+
+**Ergebnis:**  
+SafetyManager → Display → Audio → UI-Sperre.
+
+**Status:** Bestanden  
+**Requirement:** 4.2 / 4.4 / 5.1
+
+---
+
+## IT10 – Sicherheitsabschaltung der Heizung
+
+**Ziel:**  
+Abschaltung der Heizung bei kritischer Temperatur.
+
+**Ergebnis:**  
+Heizung wird deaktiviert, Status aktualisiert.
+
+**Status:** Bestanden  
+**Requirement:** 4.3
+
+---
+
+## IT11 – LED + Audio Synchronisation
+
+**Ziel:**  
+Gleichzeitige visuelle und akustische Rückmeldung.
+
+**Ergebnis:**  
+LED und Signal werden gemeinsam aktiviert.
+
+**Status:** Bestanden  
+**Requirement:** 5.1 / 5.2
+
+---
+
+## IT12 – Signal-Lautstärkeprüfung im Systemkontext
+
+**Ziel:**  
+Überprüfung der Signal-Lautstärke im Zusammenspiel mehrerer Komponenten.
+
+**Ergebnis:**  
+`measureSignalVolume()` bestätigt normgerechte Lautstärke nach Signalausgabe.
+
+**Status:** Bestanden  
+**Requirement:** 5.3
+
+---
+
+## IT13 – Zieltemperatur erreicht löst akustisches Signal aus
+
+**Ziel:**  
+Überprüfung, dass beim Erreichen der Solltemperatur automatisch ein akustisches Signal ausgelöst wird.
+
+**Vorbedingung:**  
+- Solltemperatur = 180°C  
+- Isttemperatur steigt von 175°C auf 180°C  
+- System befindet sich im aktiven Heizbetrieb
+
+**Aktion:**  
+- `TemperatureController.update()` verarbeitet neuen Sensorwert (180°C)
+
+**Erwartetes Ergebnis:**  
+- Zieltemperatur wird erkannt  
+- `signalAfterTargetTemp()` wird aufgerufen  
+- AudioOutput gibt Bestätigungssignal aus
+
+**Status:** Bestanden  
+**Requirement:** 5.4
 
 
 
 
 
-
-# 6. Traceability-Matrix – Sprint 2
-
-| Requirement-ID | Jira | Komponente | Klasse | Schnittstelle | Testfall(e) |
-|----------------|------|------------|--------|----------------|-------------|
-| 2.4 | TEMP-8 | Regelung | TemperatureController | update() | UT1, UT2, IT1 |
-| 3.1 | SAFE-1 | Safety | SafetyManager | checkSafetyConditions() | UT3, IT2 |
-| 3.2 | SAFE-2 | Safety | SafetyManager | update(), heater->off() | UT4, IT3 |
-| 3.3 | SAFE-3 | Safety | SafetyManager | logEvent() | IT5 |
-| 3.4 | SAFE-4 | Safety/UI | SafetyManager + DisplayDriver | showWarning() | IT4 |
-| 4.1 | TEMP-9 | Sensorik | SensorInterface | readTemperature() | UT5, IT1 |
 

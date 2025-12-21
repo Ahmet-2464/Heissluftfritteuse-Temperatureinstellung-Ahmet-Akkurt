@@ -1,4 +1,4 @@
-# 3. Testfälle – Modul-/Unit-Ebene (8 Stück)
+# 3. Testfälle – Modul-/Unit-Ebene (16 Stück)
 
 ## UT1 – Temperaturuntergrenze wird korrekt behandelt  
 **Requirement:** 1.1  
@@ -168,8 +168,194 @@ Die Methode clampte den Wert korrekt auf 0.
 ### Status
 ✔ Bestanden
 
+---
 
-# 4. Testfälle – Integrationsebene (8 Stück)
+## UT9 – Übertemperatur wird erkannt und gemeldet  
+**Requirement:** 4.2  
+**Komponente/Klasse:** SafetyManager  
+**Methode:** checkSafetyStatus()  
+
+### Vorbedingung
+- SafetyManager ist initialisiert.
+- Kritischer Grenzwert = 250°C.
+- Kein Fehlerzustand aktiv.
+
+### Aktion
+- Isttemperatur = 255°C an SafetyManager übergeben.
+
+### Erwartetes Ergebnis
+- Übertemperatur wird erkannt.
+- Sicherheitsstatus wird auf *kritisch* gesetzt.
+
+### Nachbedingung
+- `isCritical == true`.
+
+### Status
+✔ **Bestanden**  
+Die Übertemperatur wurde korrekt erkannt.
+
+---
+
+## UT10 – Sicherheitsabschaltung der Heizung bei Übertemperatur  
+**Requirement:** 4.3  
+**Komponente/Klasse:** SafetyManager  
+**Methode:** update()  
+
+### Vorbedingung
+- Heizung ist EIN.
+- Kritische Temperatur liegt an (z. B. 260°C).
+
+### Aktion
+- Aufruf von `update()`.
+
+### Erwartetes Ergebnis
+- Heizung wird sofort abgeschaltet.
+
+### Nachbedingung
+- Heizstatus == AUS.
+
+### Status
+✔ **Bestanden**
+
+---
+
+
+## UT11 – Warnmeldung wird auf dem Display angezeigt  
+**Requirement:** 4.2  
+**Komponente/Klasse:** DisplayDriver  
+**Methode:** showWarning()  
+
+### Vorbedingung
+- DisplayDriver ist initialisiert.
+- Kein aktiver Warnhinweis.
+
+### Aktion
+- `showWarning("Überhitzung!")` aufrufen.
+
+### Erwartetes Ergebnis
+- Warntext wird angezeigt.
+
+### Nachbedingung
+- Display befindet sich im Warnzustand.
+
+### Status
+✔ **Bestanden**
+
+---
+
+## UT12 – Benutzereingaben werden im Fehlerfall gesperrt  
+**Requirement:** 4.4  
+**Komponente/Klasse:** UserInterface  
+**Methode:** lockInput()  
+
+### Vorbedingung
+- Fehlerzustand aktiv.
+- UI ist initialisiert.
+
+### Aktion
+- Benutzer versucht Temperatureingabe.
+
+### Erwartetes Ergebnis
+- Eingabe wird blockiert.
+
+### Nachbedingung
+- Keine Änderung der Solltemperatur.
+
+### Status
+✔ **Bestanden**
+
+---
+
+## UT13 – Akustisches Warnsignal wird ausgelöst  
+**Requirement:** 5.1  
+**Komponente/Klasse:** AudioOutput  
+**Methode:** playSignal()  
+
+### Vorbedingung
+- Audiosystem ist bereit.
+- Kein aktives Signal.
+
+### Aktion
+- Sicherheitsereignis auslösen.
+
+### Erwartetes Ergebnis
+- Akustisches Warnsignal wird abgespielt.
+
+### Nachbedingung
+- Signalstatus = aktiv.
+
+### Status
+✔ **Bestanden**
+
+---
+
+## UT14 – LED zeigt Fehlerzustand an  
+**Requirement:** 5.2  
+**Komponente/Klasse:** LEDController  
+**Methode:** activateLED()  
+
+### Vorbedingung
+- LED ist AUS.
+
+### Aktion
+- Fehlerzustand aktivieren.
+
+### Erwartetes Ergebnis
+- Fehler-LED wird eingeschaltet.
+
+### Nachbedingung
+- LED-Zustand = ERROR / ON.
+
+### Status
+✔ **Bestanden**
+
+---
+
+## UT15 – Signal nach Erreichen der Zieltemperatur  
+**Requirement:** 5.4  
+**Komponente/Klasse:** AudioOutput  
+**Methode:** signalAfterTargetTemp()  
+
+### Vorbedingung
+- Solltemperatur = 180°C.
+- Isttemperatur = 180°C.
+
+### Aktion
+- Zieltemperatur erreicht.
+
+### Erwartetes Ergebnis
+- Bestätigungssignal wird abgespielt.
+
+### Nachbedingung
+- Signal wurde genau einmal ausgelöst.
+
+### Status
+✔ **Bestanden**
+
+---
+
+## UT16 – Lautstärke des akustischen Signals wird überprüft  
+**Requirement:** 5.3  
+**Komponente/Klasse:** AudioOutput  
+**Methode:** measureSignalVolume()  
+
+### Vorbedingung
+- Audiosystem ist initialisiert.
+- Signal wurde abgespielt.
+
+### Aktion
+- `measureSignalVolume()` ausführen.
+
+### Erwartetes Ergebnis
+- Gemessene Lautstärke liegt innerhalb des definierten Bereichs (z. B. 70–90 dB).
+
+### Nachbedingung
+- Lautstärkewert ist gültig und dokumentiert.
+
+### Status
+✔ **Bestanden**
+
+# 4. Testfälle – Integrationsebene (13 Stück)
 
 ## IT1 – UI übergibt Temperatur korrekt an Displaykomponente  
 **Requirement:** 2.2  
@@ -220,7 +406,7 @@ Die Methode clampte den Wert korrekt auf 0.
 ---
 
 ## IT3 – UI löst Signalton korrekt aus  
-**Requirement:** 2.3  
+**Requirement:** 1.3 + 2.3  
 **Schnittstelle:** spieleSignal()  
 **Komponenten:** TouchInputHandler ↔ DisplayController  
 
@@ -336,17 +522,139 @@ Die Methode clampte den Wert korrekt auf 0.
 
 ---
 
+# 4. Testfälle – Integrationsebene (8 Stück)
+
+---
+
+## IT9 – SafetyManager löst vollständige Warnkette aus  
+**Requirement:** 4.2, 4.4, 5.1  
+**Komponenten:** SafetyManager ↔ DisplayDriver ↔ UserInterface ↔ AudioOutput  
+
+### Vorbedingung
+- System im Normalbetrieb.
+- Heizung EIN.
+
+### Aktion
+- Übertemperatur (260°C) tritt auf.
+
+### Erwartetes Ergebnis
+- Warnmeldung im Display  
+- Akustisches Signal  
+- UI gesperrt
+
+### Status
+✔ **Bestanden**
+
+---
+
+## IT10 – SafetyManager schaltet Heizung systemweit ab  
+**Requirement:** 4.3  
+**Komponenten:** SafetyManager ↔ HeaterControl  
+
+### Vorbedingung
+- Heizung EIN.
+- Kritische Temperatur aktiv.
+
+### Aktion
+- SafetyManager.update()
+
+### Erwartetes Ergebnis
+- Heizung wird deaktiviert.
+
+### Status
+✔ **Bestanden**
+
+---
+
+## IT11 – LED und Signal werden synchron ausgelöst  
+**Requirement:** 5.1, 5.2  
+**Komponenten:** SafetyManager ↔ AudioOutput ↔ LEDController  
+
+### Vorbedingung
+- Fehlerzustand erkannt.
+
+### Aktion
+- SafetyManager.update()
+
+### Erwartetes Ergebnis
+- LED EIN  
+- Signal abgespielt
+
+### Status
+✔ **Bestanden**
+
+---
+
+## IT12 – Akustisches Signal erfüllt Lautstärkeanforderung  
+**Requirement:** 5.3  
+**Komponenten:** SafetyManager ↔ AudioOutput  
+
+### Vorbedingung
+- Sicherheitsereignis aktiv.
+- Akustisches Signal wird ausgelöst.
+
+### Aktion
+- Lautstärkeprüfung nach Signalausgabe durchführen.
+
+### Erwartetes Ergebnis
+- Signal ist für den Benutzer eindeutig hörbar.
+- Lautstärke liegt im spezifizierten Bereich.
+
+### Status
+✔ **Bestanden**
+
+---
+
+## IT13 – Signal nach Zieltemperatur im Gesamtsystem  
+**Requirement:** 5.4  
+**Komponenten:** TemperatureController ↔ AudioOutput  
+
+### Vorbedingung
+- Soll = 160°C
+- Ist = 160°C
+
+### Aktion
+- Regelzyklus abschließen.
+
+### Erwartetes Ergebnis
+- Bestätigungssignal wird abgespielt.
+
+### Status
+✔ **Bestanden**
+
+---
+
 # 5. Testergebnis-Dokumentation
 
 | Testfall | Requirement | Ergebnis | Status |
 |----------|--------------|---------------|--------|
-| UT1 | 2.4 | Heizlogik EIN | ✔ |
-| UT2 | 2.4 | Heizlogik AUS | ✔ |
-| UT3 | 3.1 | kritische Temperatur erkannt | ✔ |
-| UT4 | 3.2 | Heizung deaktiviert | ✔ |
-| UT5 | 4.1 | Sensorwerte korrekt | ✔ |
-| IT1 | 2.4 / 4.1 | Sensor → Controller logisch | ✔ |
-| IT2 | 3.1 | Warnung ausgelöst | ✔ |
-| IT3 | 3.2 | Heizung abgeschaltet | ✔ |
-| IT4 | 3.4 | Warnmeldung angezeigt | ✔ |
-| IT5 | 3.3 | Logging korrekt | ✔ |
+| UT1 | 1.1 | Untergrenze korrekt begrenzt | ✔  |
+| UT2 | 1.1 | Obergrenze korrekt begrenzt | ✔ |
+| UT3 | 1.2 | Formatierte Ausgabe korrekt | ✔ |
+| UT4 | 2.4 | Heizlogik EIN | ✔ |
+| UT5 | 2.4 | Heizlogik AUS | ✔ |
+| UT6 | 3.1 | kritische Temperatur erkannt | ✔ |
+| UT7 | 3.2 | Heizung deaktiviert | ✔ |
+| UT8 | 4.1 | Sensorwerte korrekt | ✔ |
+| UT9 | 4.2 | Übertemperatur erkannt | ✔ |
+| UT10 | 4.3 | Heizung abgeschaltet | ✔ |
+| UT11 | 4.2 | Warnmeldung angezeigt | ✔ |
+| UT12 | 4.4 | UI gesperrt | ✔ |
+| UT13 | 5.1 | Signal ausgelöst | ✔ |
+| UT14 | 5.2 | LED aktiviert | ✔ |
+| UT15 | 5.4 | Zieltemperatursignal | ✔ |
+| UT16 | 5.3 | Lautstärke geprüft | ✔ |
+| IT1 | 2.2 | UI → Display Übertragung korrekt | ✔ |
+| IT2 | 2.1 | LED-Reaktion korrekt | ✔ |
+| IT3 | 1.3 / 2.3 | Signalton korrekt | ✔ |
+| IT4 | 2.4 / 4.1 | Sensor → Controller logisch | ✔ |
+| IT5 | 3.1 | Warnung ausgelöst | ✔ |
+| IT6 | 3.2 | Heizung abgeschaltet | ✔ |
+| IT7 | 3.4 | Warnmeldung angezeigt | ✔ |
+| IT8 | 3.3 | Logging korrekt | ✔ |
+| IT9 | 4.2 / 4.4 / 5.1 | Warnkette vollständig | ✔ |
+| IT10 | 4.3 | Abschaltung erfolgreich | ✔ |
+| IT11 | 5.1 / 5.2 | Signal + LED | ✔ |
+| IT12 | 5.3 | Lautstärkeanforderung erfüllt | ✔ |
+| IT13 | 5.4 | Endsignal korrekt | ✔ |
+
