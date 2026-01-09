@@ -1,7 +1,18 @@
-Ich versichere, dass ich die beiliegende Arbeit ohne Hilfe
-Dritter und ohne Benutzung anderer als der angegebenen
-Quellen und Hilfsmittel angefertigt habe. Die den benutzten Quellen wörtlich oder inhaltlich entnommenen Inhalte sind
+# Erklärung zur Eigenständigkeit der Arbeit
+
+Ich versichere hiermit, dass ich die vorliegende Projektarbeit selbstständig und ohne Hilfe
+Dritter sowie ohne Benutzung anderer als der angegebenen Quellen und Hilfsmittel angefertigt habe.
+
+Alle Stellen, die wörtlich oder sinngemäß aus den verwendeten Quellen entnommen wurden, sind
 als solche kenntlich gemacht.
 
-Ort, Datum: ________________________
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unterschrift: ________________________
+Ich erteile hiermit der Technischen Hochschule Deggendorf das Recht, die von mir erstellte
+Software für hochschulinterne Zwecke zu verwenden.
+
+<br>
+
+**Ort, Datum:** ..............................................................
+
+<br>
+
+**Unterschrift:** ..............................................................

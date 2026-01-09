@@ -22,4 +22,4 @@ int main() {
 
     ui.RueckmeldungAnNutzer("Betrieb abgeschlossen.");
     return 0;
-}
+    }
