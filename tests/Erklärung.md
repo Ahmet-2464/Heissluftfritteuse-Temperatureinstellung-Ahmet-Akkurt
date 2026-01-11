@@ -11,8 +11,8 @@ Software für hochschulinterne Zwecke zu verwenden.
 
 <br>
 
-**Ort, Datum:** ..............................................................
+**Ort, Datum:** Wallersdorf, 11.01.2026
 
 <br>
 
-**Unterschrift:** ..............................................................
+**Unterschrift:** Ahmet Akkurt
