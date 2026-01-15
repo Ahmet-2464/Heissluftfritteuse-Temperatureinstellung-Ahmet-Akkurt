@@ -1,3 +1,4 @@
+import tkinter as tk
 from Präsentationsschicht.user_interface import UserInterface
 from Logikschicht.temperature_controller import TemperatureController
 from Hardwareabstraktionsschichtpy.sensor_interface import SensorInterface
